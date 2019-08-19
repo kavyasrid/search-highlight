@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Highlight searched result in Angularjs App | JSON World</title>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+      .color-bg { background: green; }
+    </style>
+  </head>
+
+  <body ng-app="highlightText">
+    <h1 class="text-center">Highlight text in AngularJS App.</h1>
+
+    <div class="container text-center" ng-controller="highlightText">
+      <input type="text" placeholder="Search" ng-model="search.text"><br><br>
+
+        <!-- with filter -->
+        <div ng-repeat="item in data | filter:search.text"
+            ng-bind-html="item.text | highlight:search.text">
+        </div>
+    </div>
+  </body>
+</html>
